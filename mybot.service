@@ -1,0 +1,16 @@
+[Unit]
+Description=Discord VPS Bot
+After=network.target docker.service
+Requires=docker.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/Mybot
+ExecStart=/root/Mybot/venv/bin/python /root/Mybot/bot.py
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
