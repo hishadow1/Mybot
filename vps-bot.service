@@ -13,7 +13,7 @@ Group=root
 WorkingDirectory=/opt/vps-bot
 
 # Command to execute the bot (pointing to your virtual environment or global python)
-ExecStart=/usr/bin/python3 main.py
+ExecStart=/usr/bin/python3 bot.py
 
 # Restart settings to make the bot resilient against unexpected failures
 Restart=always
