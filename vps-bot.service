@@ -5,24 +5,18 @@ Requires=docker.service
 
 [Service]
 Type=simple
-# Ensure the bot runs under a secure, non-root user that is part of the docker group
 User=root
 Group=root
 
-# Set the working directory to where your bot's files reside
-WorkingDirectory=/opt/vps-bot
+# Dynamically mapped repository paths (resolved during installation)
+WorkingDirectory=/root/Mybot
+ExecStart=/root/Mybot/.venv/bin/python3 bot.py
 
-# Command to execute the bot (pointing to your virtual environment or global python)
-ExecStart=/usr/bin/python3 bot.py
-
-# Restart settings to make the bot resilient against unexpected failures
+# Auto-recovery if the bot hits a rare crash or memory limit
 Restart=always
 RestartSec=5
 
-# Environment variables (Optional: pass your token securely here instead of hardcoding it)
-# Environment=DISCORD_TOKEN=your_token_here
-
-# Standard output formatting for journalctl logs
+# Console logging integration
 StandardOutput=journal
 StandardError=journal
 SyslogIdentifier=vps-bot
