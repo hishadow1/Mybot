@@ -1,3 +1,9 @@
+sudo apt install python3-venv
+
+python3 -m venv .venv
+
+source .venv/bin/activate
+
 sudo cp vps-bot.service /etc/systemd/system/vps-bot.service
 
 sudo systemctl daemon-reload
