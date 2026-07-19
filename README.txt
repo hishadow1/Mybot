@@ -1,8 +1,4 @@
-sudo apt install python3-venv
-
-python3 -m venv .venv
-
-source .venv/bin/activate
+python3 -m pip install -U discord.py --break-system-packages
 
 sudo cp vps-bot.service /etc/systemd/system/vps-bot.service
 
