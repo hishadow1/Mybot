@@ -8,15 +8,14 @@ Type=simple
 User=root
 Group=root
 
-# Dynamically mapped repository paths (resolved during installation)
+# Switched to the global system Python interpreter
 WorkingDirectory=/root/Mybot
-ExecStart=/root/Mybot/.venv/bin/python3 bot.py
+ExecStart=/usr/bin/python3 bot.py
 
-# Auto-recovery if the bot hits a rare crash or memory limit
+# Auto-recovery configuration
 Restart=always
 RestartSec=5
 
-# Console logging integration
 StandardOutput=journal
 StandardError=journal
 SyslogIdentifier=vps-bot
