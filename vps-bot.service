@@ -1,24 +1,16 @@
 [Unit]
 Description=DarkNodes VPS Manager Discord Bot
-After=network.target docker.service
+After=network-online.target docker.service
 Requires=docker.service
 
 [Service]
 Type=simple
 User=root
-Group=root
-
-# Switched to the global system Python interpreter
 WorkingDirectory=/root/Mybot
-ExecStart=/usr/bin/python3 bot.py
-
-# Auto-recovery configuration
+ExecStart=/root/Mybot/.venv/bin/python /root/Mybot/bot.py
 Restart=always
 RestartSec=5
-
-StandardOutput=journal
-StandardError=journal
-SyslogIdentifier=vps-bot
+Environment=PYTHONUNBUFFERED=1
 
 [Install]
 WantedBy=multi-user.target
